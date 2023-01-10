@@ -31,7 +31,7 @@ public class Cloud extends GraphicalObject {
 
     public void update(double dt){
         if(this.x < this.stop+600){
-            x = x+100*dt;
+            x = x+10*dt;
         }
 
         allSnow.add(new Snow(x,y));
