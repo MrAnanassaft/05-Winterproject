@@ -1,8 +1,12 @@
 package my_project.control;
 
+import KAGO_framework.control.Drawable;
 import KAGO_framework.control.ViewController;
 import KAGO_framework.model.abitur.datenstrukturen.Queue;
+import my_project.model.Background;
 import my_project.model.Ball;
+import my_project.model.Cloud;
+import my_project.model.Snow;
 import my_project.view.InputManager;
 
 import java.awt.event.MouseEvent;
@@ -11,7 +15,7 @@ import java.awt.event.MouseEvent;
  * Ein Objekt der Klasse ProgramController dient dazu das Programm zu steuern. Die updateProgram - Methode wird
  * mit jeder Frame im laufenden Programm aufgerufen.
  */
-public class ProgramController {
+public class  ProgramController {
 
     //Attribute
 
@@ -36,9 +40,20 @@ public class ProgramController {
      */
     public void startProgram() {
         // Erstelle ein Objekt der Klasse Ball und lasse es zeichnen
-        Ball ball1 = new Ball(150,150);
-        viewController.draw(ball1);
+        //Ball ball1 = new Ball(150,150);
+        //viewController.draw(ball1);
 
+        Background b1 = new Background();
+        viewController.draw(b1);
+        Cloud c1 = new Cloud(-550,100,40,-550);
+        viewController.draw(c1);
+        Cloud c2 = new Cloud(-350,100,40,-350);
+        viewController.draw(c2);
+        Cloud c3 = new Cloud(-150,100,40,-150);
+        viewController.draw(c3);
+        for (Object d:Cloud.allSnow) {
+            viewController.draw((Drawable)d);
+        }
     }
 
     /**
