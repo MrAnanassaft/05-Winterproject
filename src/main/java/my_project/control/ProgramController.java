@@ -45,15 +45,18 @@ public class  ProgramController {
 
         Background b1 = new Background();
         viewController.draw(b1);
-        Cloud c1 = new Cloud(-550,100,40,-550);
-        viewController.draw(c1);
-        Cloud c2 = new Cloud(-350,100,40,-350);
-        viewController.draw(c2);
-        Cloud c3 = new Cloud(-150,100,40,-150);
-        viewController.draw(c3);
-        for (Object d:Cloud.allSnow) {
-            viewController.draw((Drawable)d);
+        //Cloud c1 = new Cloud(-550,100,40,-550);
+        //viewController.draw(c1);
+
+        for(int i = 0; i< 200; i++){
+            Snow s1 = new Snow(Math.random()*200 + 15, 100,5);
+            viewController.draw(s1);
         }
+        //Cloud c2 = new Cloud(-350,100,40,-350);
+        //viewController.draw(c2);
+        //Cloud c3 = new Cloud(-150,100,40,-150);
+        //viewController.draw(c3);
+
     }
 
     /**

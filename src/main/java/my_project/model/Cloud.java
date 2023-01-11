@@ -3,12 +3,18 @@ package my_project.model;
 import KAGO_framework.control.Drawable;
 import KAGO_framework.model.GraphicalObject;
 import KAGO_framework.view.DrawTool;
+import KAGO_framework.control.ViewController;
 
 import java.awt.*;
 import java.util.ArrayList;
+import my_project.model.Snow;
 
 public class Cloud extends GraphicalObject {
+
     private double stop;
+    public boolean go;
+    private ViewController viewController;
+
     public static ArrayList allSnow = new ArrayList<Drawable>();
     public Cloud(double x, double y, double rad, double stop){
         this.x = x;
@@ -31,10 +37,20 @@ public class Cloud extends GraphicalObject {
 
     public void update(double dt){
         if(this.x < this.stop+600){
-            x = x+10*dt;
+            x = x+100*dt;
+
         }
 
-        allSnow.add(new Snow(x,y));
+        if(this.x > this.stop+600){
+            for(int i = 0; i< 200; i++){
+                Snow s1 = new Snow(Math.random()*200 + 15, 100,5);
+                viewController.draw(s1);
+            }
+        }
+
+
+
+
 
     }
 
