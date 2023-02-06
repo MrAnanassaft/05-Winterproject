@@ -3,10 +3,7 @@ package my_project.control;
 import KAGO_framework.control.Drawable;
 import KAGO_framework.control.ViewController;
 import KAGO_framework.model.abitur.datenstrukturen.Queue;
-import my_project.model.Background;
-import my_project.model.Ball;
-import my_project.model.Cloud;
-import my_project.model.Snow;
+import my_project.model.*;
 import my_project.view.InputManager;
 
 import java.awt.event.MouseEvent;
@@ -43,19 +40,30 @@ public class  ProgramController {
         //Ball ball1 = new Ball(150,150);
         //viewController.draw(ball1);
 
-        Background b1 = new Background();
+        Background b1 = new Background(150);
         viewController.draw(b1);
-        //Cloud c1 = new Cloud(-550,100,40,-550);
-        //viewController.draw(c1);
 
-        for(int i = 0; i< 200; i++){
-            Snow s1 = new Snow(Math.random()*200 + 15, 100,5);
-            viewController.draw(s1);
+        Cloud c1 = new Cloud(-600,0,40,-600);
+        if(c1.getStop()){
+            for(int i = 0; i< 500; i++){
+                Snow s1 = new Snow(Math.random()*600, Math.random()*(-600)-5,Math.random()*2+3);
+                viewController.draw(s1);
+            }
         }
-        //Cloud c2 = new Cloud(-350,100,40,-350);
-        //viewController.draw(c2);
-        //Cloud c3 = new Cloud(-150,100,40,-150);
-        //viewController.draw(c3);
+        viewController.draw(c1);
+        Tree t1 = new Tree(400,460,25);
+        viewController.draw(t1);
+
+
+        Person p1 = new Person(200,400,20,40);
+        viewController.draw(p1);
+
+        Wind w1 = new Wind(-500, 100);
+        viewController.draw(w1);
+        Wind w2 = new Wind(-300, 100);
+        viewController.draw(w2);
+        Wind w3 = new Wind(-100, 100);
+        viewController.draw(w3);
 
     }
 
